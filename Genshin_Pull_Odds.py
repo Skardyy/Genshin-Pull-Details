@@ -7,6 +7,7 @@ import mplcursors
 
 df = pd.DataFrame()
 df['SingleTrue'] = np.concatenate((np.repeat(0.6, 73), np.arange(6.6, 106, 6)))
+df['SingleTrue'] = np.where(df['SingleTrue'] > 100, 100, df['SingleTrue'])
 df['SingleFalse'] = np.where((100 - df['SingleTrue']) < 0, 0, 100 - df['SingleTrue'])
 Cumprod = (df['SingleFalse'] / 100).cumprod()
 df['CumProd'] = Cumprod * 100
