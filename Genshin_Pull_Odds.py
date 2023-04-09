@@ -3,7 +3,8 @@ import pandas as pd
 from matplotlib import pyplot as plt
 import mplcursors
 import plotly.express as px
-import plotly.io as pio
+import socketserver
+import http.server
 
 
 
@@ -39,6 +40,13 @@ df['Pulls'] = df.index + 1
 #plt.show()
 
 fig = px.scatter(df, x = 'Pulls', y = 'SingleTrue', color = 'FalseCumprod', hover_data = 'SingleFalse')
-fig.write_html("idk.html", auto_open = True)
+fig.write_html("mygraph.html")
+
+port = 8000
+handler = http.server.SimpleHTTPRequestHandler
+with socketserver.TCPServer(("", port), handler) as httpd:
+    httpd.serve_forever()
+
+
 
 
