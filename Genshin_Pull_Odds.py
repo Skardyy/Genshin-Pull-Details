@@ -17,7 +17,7 @@ df['FalseCumprod'] = Cumprod * 100
 df['SingleTrue'].index += 1
 df['SingleFalse'].index += 1
 df['FalseCumprod'].index += 1
-df['Pulls'] = df.index
+df['Pulls'] = df.index + 1
 
 #plt.subplot(3,1,1)
 #plt.title('Odds to receive 5 star in a single pull')
