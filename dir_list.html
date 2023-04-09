@@ -1,0 +1,12 @@
+<html>
+    <head>
+        <title>Directory listing</title>
+    </head>
+    <body>
+        <ul>
+            {% for item in dir_list %}
+                <li><a href="{{item}}">{{item}}</a> </li>
+            {% end %}
+        </ul>
+    </body>
+</html>
